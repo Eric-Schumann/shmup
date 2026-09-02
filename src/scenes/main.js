@@ -1,9 +1,16 @@
-import Background from '../components/background';
-import Overlay from '../components/overlay';
 import k from '../context';
+import Background from '../entities/background';
+import Overlay from '../entities/overlay';
 import { LAYERS } from '../globals';
 
 const MainScene = () => {
+
+    const music = k.play('battle', {
+        volume: 0.25,
+        loop: true
+    });
+
+    const startLevelSound = k.play('start-level');
 
     let scrollSpeed = 200;
 
