@@ -3,10 +3,28 @@ import Overlay from '../entities/overlay';
 
 const MainMenu = () => {
 
+    let musicStarted = false;
+
     const music = k.play('menu', {
         volume: 0.5,
         loop: true,
     })
+
+    music.stop();
+
+    k.onMouseMove(() => {
+        if(!musicStarted) {
+            music.play();
+            musicStarted = true;
+        }
+    });
+
+    k.onMousePress(["left", "right", "forward", "back", "middle"], () => {
+        if(!musicStarted) {
+            music.play()
+            musicStarted = true;
+        }
+    });
 
     const title = k.add([
         k.text('Main Menu: Press <ENTER> To Play'),
