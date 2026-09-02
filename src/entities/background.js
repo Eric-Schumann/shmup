@@ -2,6 +2,7 @@ import k from '../context';
 import { LAYERS, SCALE, SCROLL_SPEED } from '../globals';
 
 const Background = ({
+    layer=LAYERS.BACKGROUND,
     scrollSpeed=SCROLL_SPEED
 }) => {
     const bgOne = k.add([

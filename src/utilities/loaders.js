@@ -1,5 +1,6 @@
 import k from '../context';
 import MainScene from '../scenes/main';
+import MainMenu from '../scenes/mainMenu';
 
 const sprites = [
     { name: 'bg', path: 'sprites/stars.png' },
@@ -8,6 +9,7 @@ const sprites = [
 
 const scenes = [
     { name: 'main', scene: MainScene },
+    { name: 'main-menu', scene: MainMenu },
 ]
 
 const music = [
