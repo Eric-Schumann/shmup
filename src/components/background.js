@@ -17,7 +17,7 @@ const Background = ({
     const bgTwo = k.add([
         k.sprite('bg'),
         k.scale(SCALE),
-        k.pos(0, k.height()),
+        k.pos(0, -k.height()),
         k.layer(LAYERS.BACKGROUND),
         {
             scrollSpeed
@@ -25,15 +25,15 @@ const Background = ({
     ]);
 
     k.onUpdate(() => {
-        bgOne.move(0, -bgOne.scrollSpeed);
-        bgTwo.move(0, -bgTwo.scrollSpeed);
+        bgOne.move(0, bgOne.scrollSpeed);
+        bgTwo.move(0, bgTwo.scrollSpeed);
 
-        if(bgOne.pos.y <= -k.height()) {
-            bgOne.pos.y = bgTwo.pos.y + k.height();
+        if(bgOne.pos.y >= k.height()) {
+            bgOne.pos.y = -k.height()
         }
 
-        if(bgTwo.pos.y <= -k.height()) {
-            bgTwo.pos.y = bgOne.pos.y + k.height();
+        if(bgTwo.pos.y >= k.height()) {
+            bgTwo.pos.y = -k.height();
         }
     });
 
