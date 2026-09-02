@@ -8,9 +8,8 @@ const MainMenu = () => {
     const music = k.play('menu', {
         volume: 0.5,
         loop: true,
+        paused: true,
     })
-
-    music.stop();
 
     k.onMouseMove(() => {
         if(!musicStarted) {
