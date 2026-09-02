@@ -9,13 +9,6 @@ const MainMenu = () => {
         volume: 0.5,
         loop: true,
         paused: true,
-    })
-
-    k.onMouseMove(() => {
-        if(!musicStarted) {
-            music.play();
-            musicStarted = true;
-        }
     });
 
     k.onMousePress(["left", "right", "forward", "back", "middle"], () => {
