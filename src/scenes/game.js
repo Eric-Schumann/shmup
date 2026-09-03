@@ -1,4 +1,5 @@
 import k from '../context';
+import waves from '../data/enemyWaves';
 import { fadeIn } from '../effects/sceneTransitions';
 import { StarsBackground } from '../entities/backgrounds';
 import Overlay from '../entities/overlay';
@@ -6,10 +7,13 @@ import Player from '../entities/player';
 import { LAYERS, SFX, SONGS } from '../globals';
 import sfxService from '../services/sfxService';
 import songService from '../services/songService';
+import spawnEnemySystem from '../systems/spawnEnemySystem';
 
 const GameScene = () => {
 
     fadeIn(2);
+
+    spawnEnemySystem(waves);
 
     const text = k.add([
         k.text('[W, A, S, D]'),

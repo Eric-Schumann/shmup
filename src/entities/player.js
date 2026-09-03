@@ -47,6 +47,8 @@ const Player = ({
 
         k.scale(0.6),
 
+        "player",
+
         playerController(),
 
         {
