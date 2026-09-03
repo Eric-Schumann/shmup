@@ -1,11 +1,13 @@
 import k from '../context';
-import Background from '../entities/background';
+import { fadeIn } from '../effects/sceneTransitions';
+import { StarsBackground } from '../entities/backgrounds';
 import Overlay from '../entities/overlay';
 import Player from '../entities/player';
-import { fadeIn } from '../entities/sceneTransitions';
-import { LAYERS } from '../globals';
+import { LAYERS, SFX, SONGS } from '../globals';
+import sfxService from '../services/sfxService';
+import songService from '../services/songService';
 
-const MainScene = () => {
+const GameScene = () => {
 
     fadeIn(2);
 
@@ -20,12 +22,12 @@ const MainScene = () => {
         k.height() - 40
     )
 
-    const music = k.play('battle', {
-        volume: 0.25,
-        loop: true
+    songService.play(SONGS.BATTLE, {
+        volume: 0.25
     });
 
-    const startLevelSound = k.play('start-level');
+
+    sfxService.play(SFX.START_LEVEL)
 
     let scrollSpeed = 200;
 
@@ -34,7 +36,7 @@ const MainScene = () => {
         speed: 400
     });
 
-    Background({
+    StarsBackground({
         scrollSpeed,
         layer: LAYERS.BACKGROUND
     })
@@ -47,8 +49,8 @@ const MainScene = () => {
     })
 
     k.onSceneLeave(() => {
-        music.stop();
+        songService.stop();
     });
 }
 
-export default MainScene
+export default GameScene

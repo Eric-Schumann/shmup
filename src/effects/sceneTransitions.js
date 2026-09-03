@@ -1,6 +1,6 @@
 import k from '../context';
+import Overlay from '../entities/overlay';
 import { LAYERS } from '../globals';
-import Overlay from './overlay';
 
 const fadeIn = (duration = 0.5) => {
     
@@ -26,3 +26,4 @@ const fadeIn = (duration = 0.5) => {
 export {
     fadeIn
 };
+

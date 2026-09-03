@@ -1,7 +1,7 @@
 import k from '../context';
 import { LAYERS, SCALE, SCROLL_SPEED } from '../globals';
 
-const Background = ({
+const StarsBackground = ({
     layer=LAYERS.BACKGROUND,
     scrollSpeed=SCROLL_SPEED
 }) => {
@@ -41,4 +41,7 @@ const Background = ({
     return [bgOne, bgTwo];
 }
 
-export default Background;
+export {
+    StarsBackground
+};
+

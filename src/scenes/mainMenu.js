@@ -1,20 +1,18 @@
 import k from '../context';
 import Overlay from '../entities/overlay';
+import { SONGS } from '../globals';
+import songService from '../services/songService';
 
 const MainMenu = () => {
 
-    let musicStarted = false;
-
-    const music = k.play('menu', {
-        volume: 0.5,
-        loop: true,
-        paused: true,
-    });
+    let songStarted = false;
 
     k.onMousePress(["left", "right", "forward", "back", "middle"], () => {
-        if(!musicStarted) {
-            music.play()
-            musicStarted = true;
+        if(!songStarted) {
+            songService.play(SONGS.MENU, {
+                volume: 0.5
+            });
+            songStarted = true;
         }
     });
 
@@ -32,11 +30,11 @@ const MainMenu = () => {
     title.pos.y = k.height() / 2;
 
     k.onKeyPress('enter', () => {
-        k.go('main');
+        k.go('game');
     })
 
     k.onSceneLeave(() => {
-        music.stop();
+        songService.stop();
     });
 }
 

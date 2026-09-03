@@ -1,6 +1,6 @@
 import k from './context';
 import { LAYERS } from './globals';
-import { loadMusic, loadScenes, loadSound, loadSprites } from './utilities/loaders';
+import { loadMusic, loadScenes, loadSound, loadSprites } from './services/loaders';
 
 k.setLayers([
     LAYERS.BACKGROUND,

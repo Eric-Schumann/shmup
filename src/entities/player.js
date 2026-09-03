@@ -1,4 +1,6 @@
 import k from '../context';
+import CONTROLS from '../controls';
+
 
 const playerController = () => ({
     id: 'playerController',
@@ -6,26 +8,27 @@ const playerController = () => ({
     add() {
 
         this.onUpdate(() => {
-            let direction = k.vec2(0,0);
+
             const halfWidth = this.width / 2;
             const halfHeight = this.height / 2;
 
-            const left = k.isKeyDown(['left', 'a']);
-            const right = k.isKeyDown(['right', 'd']);
-            const up = k.isKeyDown(['up', 'w']);
-            const down = k.isKeyDown(['down', 's']);
+            const left = k.isKeyDown(CONTROLS.MOVE_LEFT);
+            const right = k.isKeyDown(CONTROLS.MOVE_RIGHT);
+            const up = k.isKeyDown(CONTROLS.MOVE_UP);
+            const down = k.isKeyDown(CONTROLS.MOVE_DOWN);
 
-            direction = k.vec2(
+            const direction = k.vec2(
                 Number(right) - Number(left),
                 Number(down) - Number(up)
             )
 
-            this.pos.x = k.clamp(this.pos.x, halfWidth, k.width() - halfWidth);
-            this.pos.y = k.clamp(this.pos.y, halfHeight, k.height() - halfHeight);
-            
             if(direction.len() > 0) {
                 this.move(direction.unit().scale(this.speed));
             }
+
+            this.pos.x = k.clamp(this.pos.x, halfWidth, k.width() - halfWidth);
+            this.pos.y = k.clamp(this.pos.y, halfHeight, k.height() - halfHeight);
+            
         });
 
     }
@@ -34,8 +37,7 @@ const playerController = () => ({
 const Player = ({
     position=k.vec2(0,0),
     speed=100
-}) => {
-    k.add([
+}) => k.add([
         k.sprite('player'),
         k.anchor('center'),
         k.pos(position),
@@ -46,6 +48,5 @@ const Player = ({
             speed
         }
     ])
-}
 
 export default Player;
