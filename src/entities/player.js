@@ -9,8 +9,11 @@ const playerController = () => ({
 
         this.onUpdate(() => {
 
-            const halfWidth = this.width / 2;
-            const halfHeight = this.height / 2;
+            const scaleX = this.scale?.x || 1;
+            const scaleY = this.scale?.y || 1;
+
+            const halfWidth = (this.width / 2) * scaleX;
+            const halfHeight = (this.height / 2) * scaleY;
 
             const left = k.isKeyDown(CONTROLS.MOVE_LEFT);
             const right = k.isKeyDown(CONTROLS.MOVE_RIGHT);
@@ -41,6 +44,8 @@ const Player = ({
         k.sprite('player'),
         k.anchor('center'),
         k.pos(position),
+
+        k.scale(0.6),
 
         playerController(),
 

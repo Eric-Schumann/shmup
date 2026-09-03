@@ -33,8 +33,8 @@ const effects = [
 k.loadRoot("./"); // A good idea for Itch.io publishing later
 
 const loadSprites = () => {
-    sprites.forEach(sprite => {
-        k.loadSprite(sprite.name, sprite.path);
+    sprites.forEach(({ name, path }) => {
+        k.loadSprite(name, path);
     })
 }
 
