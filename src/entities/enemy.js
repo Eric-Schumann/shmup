@@ -7,6 +7,7 @@ const Enemy = ({type, position=k.vec2(0,0)}) => {
     const config = enemyData[type];
 
     return k.add([
+        //TODO: Swap back to sprites once artist has made them.
         //k.sprite(config.sprite),
         k.circle(10, {
             fill: true,

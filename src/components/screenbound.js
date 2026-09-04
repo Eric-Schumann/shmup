@@ -2,6 +2,7 @@ import k from '../context';
 
 const screenbound = () => ({
     id: 'screenbound',
+    require: ["pos", "sprite"],
     add() {
         this.onUpdate(() => {
 

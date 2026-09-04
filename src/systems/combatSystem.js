@@ -1,5 +1,7 @@
 import k from '../context';
 
+//TODO: This is just a scaffold, logic is a work in progress.
+
 export function setupCombatSystem() {
   k.onCollide("player", "enemy", (player, enemy) => {
     // TODO
