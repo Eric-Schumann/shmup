@@ -24,7 +24,8 @@ const Player = ({
 
         {
             speed,
-            direction: k.vec2(0,0)
+            direction: k.vec2(0,0),
+            shotCooldown: 0.5
         }
     ])
 

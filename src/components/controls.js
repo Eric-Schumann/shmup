@@ -4,15 +4,22 @@ import PlayerBullet from '../entities/playerBullet';
 import { SFX } from '../globals';
 import sfxService from '../services/sfxService';
 
-const controls = () => ({
-    id: 'controls',
-    add() {
+const controls = () => {
 
-        this.onKeyPress('space', () => {
-            this.shoot();
-        });
+    let shotTimer = 0;
 
-        this.onUpdate(() => {
+    return {
+        id: 'controls',
+        add() {
+            shotTimer = this.shotCooldown;
+            this.onKeyDown('space', () => {
+                this.shoot();
+            });
+
+        },
+        update() {
+
+            shotTimer -= k.dt();
 
             const left = k.isKeyDown(CONTROLS.MOVE_LEFT);
             const right = k.isKeyDown(CONTROLS.MOVE_RIGHT);
@@ -23,17 +30,17 @@ const controls = () => ({
                 Number(right) - Number(left),
                 Number(down) - Number(up)
             )
-
-
-        });
-
-    },
-    shoot() {
-        PlayerBullet({
-            position: k.vec2(this.pos.x, this.pos.y),
-        });
-        sfxService.play(SFX.PLAYER_SHOOT)
-    }
-});
+        },
+        shoot() {
+            if(shotTimer <= 0) {
+                PlayerBullet({
+                    position: k.vec2(this.pos.x, this.pos.y),
+                });
+                sfxService.play(SFX.PLAYER_SHOOT);
+                shotTimer = this.shotCooldown;
+            }
+        }
+    };
+}
 
 export default controls;
