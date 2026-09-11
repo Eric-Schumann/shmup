@@ -22,7 +22,9 @@ const SFX = {
     ALIEN_TALK_TWO: 'alien-talk-2',
     ALIEN_TALK_THREE: 'alien-talk-3',
     SCREAM: 'scream',
-    START_LEVEL: 'start-level'
+    START_LEVEL: 'start-level',
+    PLAYER_SHOOT: 'player-shoot',
+    ENEMY_SHOOT: 'enemy-shoot',
 };
 
 export {

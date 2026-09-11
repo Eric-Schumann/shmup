@@ -1,9 +1,16 @@
 import k from '../context';
 import CONTROLS from '../controls';
+import PlayerBullet from '../entities/playerBullet';
+import { SFX } from '../globals';
+import sfxService from '../services/sfxService';
 
 const controls = () => ({
     id: 'controls',
     add() {
+
+        this.onKeyPress('space', () => {
+            this.shoot();
+        });
 
         this.onUpdate(() => {
 
@@ -17,8 +24,15 @@ const controls = () => ({
                 Number(down) - Number(up)
             )
 
+
         });
 
+    },
+    shoot() {
+        PlayerBullet({
+            position: k.vec2(this.pos.x, this.pos.y),
+        });
+        sfxService.play(SFX.PLAYER_SHOOT)
     }
 });
 

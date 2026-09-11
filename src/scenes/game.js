@@ -9,6 +9,7 @@ import sfxService from '../services/sfxService';
 import songService from '../services/songService';
 import spawnEnemySystem from '../systems/spawnEnemySystem';
 
+
 const GameScene = () => {
 
     fadeIn(2);
@@ -33,7 +34,7 @@ const GameScene = () => {
 
     sfxService.play(SFX.START_LEVEL)
 
-    let scrollSpeed = 200;
+    let scrollSpeed = 300;
 
     Player({
         position: k.center(),

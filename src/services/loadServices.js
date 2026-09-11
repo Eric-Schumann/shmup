@@ -6,6 +6,8 @@ import MainMenu from '../scenes/mainMenu';
 const sprites = [
     { name: 'bg', path: 'sprites/stars.png' },
     { name: 'player', path: 'sprites/player.png' },
+    { name: 'player-bullet', path: 'sprites/player_bullet.png'},
+    { name: 'enemy-bullet', path: 'sprites/enemy_bullet.png'},
 ];
 
 const scenes = [
@@ -28,6 +30,8 @@ const effects = [
     { name: SFX.ALIEN_TALK_THREE, path: 'audio/effects/alien-talk-3.wav' },
     { name: SFX.SCREAM, path: 'audio/effects/scream.wav' },
     { name: SFX.START_LEVEL, path: 'audio/effects/start-level.wav' },
+    { name: SFX.PLAYER_SHOOT, path: 'audio/effects/alienshoot1.wav' },
+    { name: SFX.ENEMY_SHOOT, path: 'audio/effects/alienshoot2.wav' },
 ];
 
 k.loadRoot("./"); // A good idea for Itch.io publishing later

@@ -9,7 +9,7 @@ const StarsBackground = ({
         k.sprite('bg'),
         k.pos(0,0),
         k.scale(SCALE),
-        k.layer(LAYERS.BACKGROUND),
+        k.layer(layer),
         {
             scrollSpeed
         }

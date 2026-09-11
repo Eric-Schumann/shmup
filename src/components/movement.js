@@ -1,6 +1,6 @@
 
 const movement = () => ({
-    id: 'enemyMovement',
+    id: 'movement',
     require: ['pos'],
     add() {
         this.onUpdate(() => {
