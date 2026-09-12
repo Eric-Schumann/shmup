@@ -4,6 +4,7 @@ import { loadMusic, loadScenes, loadSound, loadSprites } from './services/loadSe
 
 k.setLayers([
     LAYERS.BACKGROUND,
+    LAYERS.BULLET,
     LAYERS.MID,
     LAYERS.FOREGROUND,
     LAYERS.UI

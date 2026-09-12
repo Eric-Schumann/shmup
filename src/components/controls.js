@@ -1,5 +1,6 @@
 import k from '../context';
 import CONTROLS from '../controls';
+import muzzleFlash from '../effects/muzzleFlash';
 import PlayerBullet from '../entities/playerBullet';
 import { SFX } from '../globals';
 import sfxService from '../services/sfxService';
@@ -12,7 +13,7 @@ const controls = () => {
         id: 'controls',
         add() {
             shotTimer = this.shotCooldown;
-            this.onKeyDown('space', () => {
+            this.onKeyDown(CONTROLS.SHOOT, () => {
                 this.shoot();
             });
 
@@ -32,10 +33,18 @@ const controls = () => {
             )
         },
         shoot() {
+            const bulletPosition = k.vec2(this.pos.x + 31, this.pos.y);
+
             if(shotTimer <= 0) {
                 PlayerBullet({
-                    position: k.vec2(this.pos.x, this.pos.y),
+                    position: bulletPosition
                 });
+
+                muzzleFlash({
+                    gameObj: this,
+                    yOffset: -20
+                });
+
                 sfxService.play(SFX.PLAYER_SHOOT);
                 shotTimer = this.shotCooldown;
             }

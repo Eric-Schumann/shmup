@@ -1,17 +1,18 @@
 import movement from '../components/movement';
 import k from '../context';
+import { LAYERS, SCALE } from '../globals';
 
 
 const PlayerBullet = ({
     position=k.vec2(k.center()),
-    speed=500,
+    speed=700,
 }) => k.add([
         k.sprite('player-bullet'),
         k.pos(position),
         k.anchor('center'),
         k.area(),
-        k.scale(2),
-        k.z(-1),
+        k.scale(SCALE),
+        k.layer(LAYERS.BULLET),
         k.offscreen({ destroy: true }),
 
         movement(),

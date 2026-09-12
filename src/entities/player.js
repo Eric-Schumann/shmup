@@ -2,6 +2,7 @@ import controls from '../components/controls';
 import movement from '../components/movement';
 import screenbound from '../components/screenbound';
 import k from '../context';
+import { SCALE } from '../globals';
 
 
 const Player = ({
@@ -14,7 +15,7 @@ const Player = ({
 
         k.area(),
 
-        k.scale(2),
+        k.scale(SCALE),
 
         "player",
 

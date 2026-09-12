@@ -3,6 +3,7 @@ const SCROLL_SPEED = 200;
 
 const LAYERS = {
     BACKGROUND: 'background',
+    BULLET: 'bullet',
     MID: 'mid',
     FOREGROUND: 'foreground',
     UI: 'ui'
