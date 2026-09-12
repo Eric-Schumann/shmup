@@ -33,7 +33,7 @@ const controls = () => {
             )
         },
         shoot() {
-            const bulletPosition = k.vec2(this.pos.x + 31, this.pos.y);
+            const bulletPosition = k.vec2(this.pos.x, this.pos.y);
 
             if(shotTimer <= 0) {
                 PlayerBullet({
