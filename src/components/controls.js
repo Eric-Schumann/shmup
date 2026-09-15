@@ -33,16 +33,35 @@ const controls = () => {
             )
         },
         shoot() {
-            const bulletPosition = k.vec2(this.pos.x, this.pos.y);
+
+            const xOffsetBullet = 34;
+            const yOffsetBullet = 10;
+
+            const xOffsetMuzzleFlash = 18;
+            const yOffsetMuzzleFlash = 8;
+
+            const bulletOnePos = k.vec2(this.pos.x - xOffsetBullet, this.pos.y + yOffsetBullet);
+            const bulletTwoPos = k.vec2(this.pos.x + xOffsetBullet, this.pos.y + yOffsetBullet);
 
             if(shotTimer <= 0) {
                 PlayerBullet({
-                    position: bulletPosition
+                    position: bulletOnePos
+                });
+
+                PlayerBullet({
+                    position: bulletTwoPos
+                })
+
+                muzzleFlash({
+                    gameObj: this,
+                    xOffset: -xOffsetMuzzleFlash,
+                    yOffset: -yOffsetMuzzleFlash
                 });
 
                 muzzleFlash({
                     gameObj: this,
-                    yOffset: -20
+                    xOffset: xOffsetMuzzleFlash,
+                    yOffset: -yOffsetMuzzleFlash
                 });
 
                 sfxService.play(SFX.PLAYER_SHOOT);
