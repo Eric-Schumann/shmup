@@ -1,20 +1,19 @@
 import movement from '../components/movement';
 import k from '../context';
 import enemyData from '../data/enemyData';
+import { SCALE } from '../globals';
 
 const Enemy = ({type, position=k.vec2(0,0)}) => {
 
     const config = enemyData[type];
 
-    return k.add([
+    const ship = k.add([
         //TODO: Swap back to sprites once artist has made them.
-        //k.sprite(config.sprite),
-        k.circle(10, {
-            fill: true,
-        }),
-        k.color(config.sprite),
+        k.sprite(config.sprite),
         k.pos(position),
         k.offscreen({ destroy: true }),
+        k.scale(SCALE),
+        k.anchor('center'),
         area(),
         //k.health(config.health),
 
@@ -30,6 +29,17 @@ const Enemy = ({type, position=k.vec2(0,0)}) => {
             direction: config.direction
         }
     ]);
+
+    const fire = ship.add([
+        k.sprite('fire'),
+        k.anchor('center'),
+        k.pos(2, -11),
+    ]);
+
+    fire.flipY = true;
+    ship.flipY = true;
+
+    return ship;
 };
 
 export default Enemy;

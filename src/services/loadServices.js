@@ -10,6 +10,33 @@ const sprites = [
     { name: 'enemy-bullet', path: 'sprites/enemy_bullet.png'},
 ];
 
+const atlas = {
+    "fire": {
+        x: 0,
+        y: 69,
+        width: 11,
+        height: 11,
+    },
+    "drone": {
+        x: 0,
+        y: 0,
+        width: 22,
+        height: 22,
+    },
+    "fighter": {
+        x: 0,
+        y: 23,
+        width: 22,
+        height: 22
+    },
+    "raptor": {
+        x: 0,
+        y: 46,
+        width: 22,
+        height: 22
+    },
+}
+
 const scenes = [
     { name: 'game', scene: GameScene },
     { name: 'main-menu', scene: MainMenu },
@@ -39,6 +66,13 @@ k.loadRoot("./"); // A good idea for Itch.io publishing later
 const loadSprites = () => {
     sprites.forEach(({ name, path }) => {
         k.loadSprite(name, path);
+    })
+
+    k.loadSpriteAtlas('sprites/enemies.png', {
+        "drone": atlas["drone"],
+        "fighter": atlas["fighter"],
+        "raptor": atlas["raptor"],
+        "fire": atlas["fire"],
     })
 }
 

@@ -22,6 +22,17 @@ const waves = [
             { delay: 2, type: 'fighter', x: k.rand(10, k.width() - 10) },
             { delay: 2, type: 'fighter', x: k.rand(10, k.width() - 10) },
         ]
+    },
+    {
+        id: 3,
+        delay: 5,
+        enemies: [
+            { delay: 2, type: 'raptor', x: k.rand(10, k.width() - 10) },
+            { delay: 2, type: 'raptor', x: k.rand(10, k.width() - 10) },
+            { delay: 2, type: 'raptor', x: k.rand(10, k.width() - 10) },
+            { delay: 2, type: 'raptor', x: k.rand(10, k.width() - 10) },
+            { delay: 2, type: 'raptor', x: k.rand(10, k.width() - 10) },
+        ]
     }
 ];
 
