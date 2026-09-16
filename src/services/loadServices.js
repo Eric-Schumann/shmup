@@ -23,13 +23,13 @@ const atlas = {
         width: 22,
         height: 22,
     },
-    "fighter": {
+    "zigzag": {
         x: 0,
         y: 23,
         width: 22,
         height: 22
     },
-    "raptor": {
+    "kamikaze": {
         x: 0,
         y: 46,
         width: 22,
@@ -70,8 +70,8 @@ const loadSprites = () => {
 
     k.loadSpriteAtlas('sprites/enemies.png', {
         "drone": atlas["drone"],
-        "fighter": atlas["fighter"],
-        "raptor": atlas["raptor"],
+        "zigzag": atlas["zigzag"],
+        "kamikaze": atlas["kamikaze"],
         "fire": atlas["fire"],
     })
 }

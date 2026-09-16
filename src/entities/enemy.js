@@ -8,7 +8,6 @@ const Enemy = ({type, position=k.vec2(0,0)}) => {
     const config = enemyData[type];
 
     const ship = k.add([
-        //TODO: Swap back to sprites once artist has made them.
         k.sprite(config.sprite),
         k.pos(position),
         k.offscreen({ destroy: true }),
@@ -29,6 +28,10 @@ const Enemy = ({type, position=k.vec2(0,0)}) => {
             direction: config.direction
         }
     ]);
+
+    if(config.behavior) {
+        ship.use(config.behavior());
+    }
 
     const fire = ship.add([
         k.sprite('fire'),

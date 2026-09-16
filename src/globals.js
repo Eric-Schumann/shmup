@@ -28,8 +28,14 @@ const SFX = {
     ENEMY_SHOOT: 'enemy-shoot',
 };
 
+const ENEMIES = {
+    DRONE: 'drone',
+    ZIGZAG: 'zigzag',
+    KAMIKAZE: 'kamikaze'
+}
+
 export {
-    LAYERS,
+    ENEMIES, LAYERS,
     SCALE, SCROLL_SPEED, SFX, SONGS
 };
 
