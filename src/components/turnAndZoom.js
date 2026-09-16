@@ -1,4 +1,5 @@
 import k from '../context';
+import warp from '../effects/warp';
 
 const turnAndZoom = () => ({
     id: 'turn-and-zoom',
@@ -26,6 +27,7 @@ const turnAndZoom = () => ({
         })
 
         k.wait(waitTime * 1.5, () => {
+            warp(this);
             this.direction = left ? k.vec2(1, 1) : k.vec2(-1, 1);
             this.speed *= 5;
         });
