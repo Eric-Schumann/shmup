@@ -18,14 +18,14 @@ const turnAndZoom = () => ({
             k.tween(
                 this.angle, 
                 left ? -rotationAngle: rotationAngle, 
-                0.25,
+                0.5,
                 (newAngle) => this.angle = newAngle,
-                k.easings.linear
+                k.easings.easeInElastic
             )
 
         })
 
-        k.wait(waitTime * 1.25, () => {
+        k.wait(waitTime * 1.5, () => {
             this.direction = left ? k.vec2(1, 1) : k.vec2(-1, 1);
             this.speed *= 5;
         });
