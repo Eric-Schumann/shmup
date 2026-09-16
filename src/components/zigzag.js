@@ -7,9 +7,12 @@ const zigzag = () => ({
             k.choose([1, -1]),
             1
         )
-        k.loop(1, () => {
+        this.zigzagLoop = k.loop(1, () => {
             this.direction.x *= -1;
         });
+    },
+    destroy() {
+        this.zigzagLoop.cancel();
     }
 });
 
