@@ -7,6 +7,7 @@ import Player from '../entities/player';
 import { LAYERS, SFX, SONGS } from '../globals';
 import sfxService from '../services/sfxService';
 import songService from '../services/songService';
+import { setupCombatSystem } from '../systems/combatSystem';
 import spawnEnemySystem from '../systems/spawnEnemySystem';
 
 
@@ -15,6 +16,7 @@ const GameScene = () => {
     fadeIn(2);
 
     spawnEnemySystem(waves);
+    setupCombatSystem();
 
     const text = k.add([
         k.text('[W, A, S, D]'),
@@ -36,9 +38,17 @@ const GameScene = () => {
 
     let scrollSpeed = 300;
 
-    Player({
+    const player = Player({
         position: k.center(),
         speed: 400
+    });
+
+    player.onDeath(() => {
+        player.destroy();
+        sfxService.play(SFX.PLAYER_EXPLODE);
+        k.wait(2, () => {
+            k.go('main-menu');
+        });
     });
 
     StarsBackground({
@@ -52,6 +62,13 @@ const GameScene = () => {
         color: 'blue',
         opacity: 0.1
     })
+
+    const healthText = k.add([
+        k.text(`Health: ${player.hp}`),
+        k.pos(10, 10),
+        k.layer(LAYERS.UI),
+        'ui-health-text',
+    ]);
 
     k.onSceneLeave(() => {
         songService.stop();

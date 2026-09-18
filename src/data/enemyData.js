@@ -9,7 +9,7 @@ const enemyData = {
         speed: 100,
         direction: k.vec2(0,1),
         health: 0,
-        contactDamage: 0,
+        contactDamage: 1,
         score: 25,
         behavior: undefined
     },
@@ -18,7 +18,7 @@ const enemyData = {
         speed: 250,
         direction: k.vec2(0, 1),
         health: 0,
-        contactDamage: 0,
+        contactDamage: 2,
         score: 25,
         behavior: zigzag
     },
@@ -27,7 +27,7 @@ const enemyData = {
         speed: 100,
         direction: k.vec2(0, 1),
         health: 0,
-        contactDamage: 0,
+        contactDamage: 3,
         score: 25,
         behavior: turnAndZoom
     }

@@ -59,6 +59,8 @@ const effects = [
     { name: SFX.START_LEVEL, path: 'audio/effects/start-level.wav' },
     { name: SFX.PLAYER_SHOOT, path: 'audio/effects/alienshoot1.wav' },
     { name: SFX.ENEMY_SHOOT, path: 'audio/effects/alienshoot2.wav' },
+    { name: SFX.CRASH, path: 'audio/effects/crash.wav' },
+    { name: SFX.PLAYER_EXPLODE, path: 'audio/effects/playerExplode.wav' },
 ];
 
 k.loadRoot("./"); // A good idea for Itch.io publishing later

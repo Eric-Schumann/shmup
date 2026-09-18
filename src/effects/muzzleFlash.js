@@ -20,21 +20,29 @@ const muzzleFlash = ({gameObj, xOffset=0, yOffset=0}) => {
         k.anchor('center'),
     ]);
 
-    k.tween(1, 0, 0.06, (value) => {
-        flash.opacity = value;
-    });
+    if(flash.exists()) {
+        k.tween(1, 0, 0.06, (value) => {
+            flash.opacity = value;
+        });
+    }
 
-    k.tween(1, 0, 0.1, (value) => {
-        glow.opacity = value;
-    });
+    if(glow.exists()) {
+        k.tween(1, 0, 0.1, (value) => {
+            glow.opacity = value;
+        });
 
-    k.tween(1, 1.8, 0.12, (value) => {
-        glow.scale = k.vec2(value);
-    });
+        k.tween(1, 1.8, 0.12, (value) => {
+            glow.scale = k.vec2(value);
+        });
+    }
 
     k.wait(1, () => {
-        glow.destroy();
-        flash.destroy();
+        if(glow.exists()) {
+            glow.destroy();
+        }
+        if(flash.exists()) {
+            flash.destroy();
+        }
     })
 }
 

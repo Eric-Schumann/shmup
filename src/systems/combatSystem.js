@@ -1,14 +1,17 @@
 import k from '../context';
-
-//TODO: This is just a scaffold, logic is a work in progress.
+import invulnerable from '../effects/invulnerable';
+import { SFX } from '../globals';
+import sfxService from '../services/sfxService';
 
 export function setupCombatSystem() {
   k.onCollide("player", "enemy", (player, enemy) => {
-    // TODO
-    // if (!player.invulnerable) {
-    //   player.hurt(enemy.contactDamage);
-    //   applyKnockback(player, enemy);
-    // }
+    if(player.invulnerable) return;
+    sfxService.play(SFX.CRASH);
+    invulnerable(player, 2);
+    player.hp -= enemy.contactDamage;
+    const healthText = k.get('ui-health-text')[0];
+    healthText.text = `Health ${player.hp}`;
+
   });
 
   k.onCollide("projectile", "enemy", (projectile, enemy) => {

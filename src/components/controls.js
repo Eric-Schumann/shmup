@@ -38,7 +38,7 @@ const controls = () => {
             const yOffsetBullet = 10;
 
             const xOffsetMuzzleFlash = 18;
-            const yOffsetMuzzleFlash = 8;
+            const yOffsetMuzzleFlash = 4;
 
             const bulletOnePos = k.vec2(this.pos.x - xOffsetBullet, this.pos.y + yOffsetBullet);
             const bulletTwoPos = k.vec2(this.pos.x + xOffsetBullet, this.pos.y + yOffsetBullet);

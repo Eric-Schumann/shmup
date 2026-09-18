@@ -13,7 +13,8 @@ const Player = ({
         k.anchor('center'),
         k.pos(position),
 
-        k.area(),
+        k.area({ isSensor: true }),
+        k.health(10),
 
         k.scale(SCALE),
 
@@ -26,7 +27,8 @@ const Player = ({
         {
             speed,
             direction: k.vec2(0,0),
-            shotCooldown: 0.5
+            shotCooldown: 0.5,
+            invulnerable: false,
         }
     ])
 

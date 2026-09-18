@@ -26,6 +26,8 @@ const SFX = {
     START_LEVEL: 'start-level',
     PLAYER_SHOOT: 'player-shoot',
     ENEMY_SHOOT: 'enemy-shoot',
+    CRASH: 'crash',
+    PLAYER_EXPLODE: 'player-explode',
 };
 
 const ENEMIES = {

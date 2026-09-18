@@ -13,7 +13,7 @@ const Enemy = ({type, position=k.vec2(0,0)}) => {
         k.offscreen({ destroy: true }),
         k.scale(SCALE),
         k.anchor('center'),
-        area(),
+        k.area({ isSensor: true }),
         //k.health(config.health),
 
         movement(),
