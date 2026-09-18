@@ -4,6 +4,7 @@ import { fadeIn } from '../effects/sceneTransitions';
 import { StarsBackground } from '../entities/backgrounds';
 import Overlay from '../entities/overlay';
 import Player from '../entities/player';
+import Health from '../entities/ui/health';
 import { LAYERS, SFX, SONGS } from '../globals';
 import sfxService from '../services/sfxService';
 import songService from '../services/songService';
@@ -17,17 +18,6 @@ const GameScene = () => {
 
     spawnEnemySystem(waves);
     setupCombatSystem();
-
-    const text = k.add([
-        k.text('[W, A, S, D]'),
-        k.pos(k.center()),
-        k.layer(LAYERS.UI)
-    ]);
-
-    text.pos = k.vec2(
-        (k.width() / 2) - (text.width / 2),
-        k.height() - 40
-    )
 
     songService.play(SONGS.BATTLE, {
         volume: 0.25
@@ -63,12 +53,7 @@ const GameScene = () => {
         opacity: 0.1
     })
 
-    const healthText = k.add([
-        k.text(`Health: ${player.hp}`),
-        k.pos(10, 10),
-        k.layer(LAYERS.UI),
-        'ui-health-text',
-    ]);
+    Health();
 
     k.onSceneLeave(() => {
         songService.stop();

@@ -36,8 +36,11 @@ const ENEMIES = {
     KAMIKAZE: 'kamikaze'
 }
 
-export {
-    ENEMIES, LAYERS,
-    SCALE, SCROLL_SPEED, SFX, SONGS
-};
+const COLORS = {
+    GREEN: { r: 139, g: 195, b: 74},
+    YELLOW: { r: 253, g: 216, b: 53},
+    RED: { r: 191, g: 54, b: 12}
+}
+
+export { COLORS, ENEMIES, LAYERS, SCALE, SCROLL_SPEED, SFX, SONGS };
 

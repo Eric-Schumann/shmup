@@ -9,9 +9,7 @@ export function setupCombatSystem() {
     sfxService.play(SFX.CRASH);
     invulnerable(player, 2);
     player.hp -= enemy.contactDamage;
-    const healthText = k.get('ui-health-text')[0];
-    healthText.text = `Health ${player.hp}`;
-
+    //TODO: Update UI Health Object
   });
 
   k.onCollide("projectile", "enemy", (projectile, enemy) => {

@@ -8,6 +8,7 @@ const sprites = [
     { name: 'player', path: 'sprites/player.png' },
     { name: 'player-bullet', path: 'sprites/player_bullet.png'},
     { name: 'enemy-bullet', path: 'sprites/enemy_bullet.png'},
+    { name: 'ui-health', path: 'sprites/ui-health.png' },
 ];
 
 const atlas = {

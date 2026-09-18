@@ -14,7 +14,7 @@ const Player = ({
         k.pos(position),
 
         k.area({ isSensor: true }),
-        k.health(10),
+        k.health(10, 10),
 
         k.scale(SCALE),
 
